@@ -14,7 +14,6 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResultVo methodArgumentNotValidException(MethodArgumentNotValidException e) {
-        ResultVo resultVo = new ResultVo(-1,e.getBindingResult().getFieldError().getDefaultMessage());
-        return resultVo;
+        return new ResultVo(-1,e.getBindingResult().getFieldError().getDefaultMessage());
     }
 }
