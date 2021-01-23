@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="css/layui.css">
+</head>
+<body>
+    <script src="layui.js"></script>
+    <table id="demo" lay-filter="test"></table>
+    <script>
+        layui.use('table', function(){
+          var table = layui.table;
+          //第一个实例
+          table.render({
+            elem: '#demo'
+            ,height: 312
+            ,url: '/data' //数据接口
+            ,page: true //开启分页
+            ,cols: [
+                    [ //表头
+                    {field: 'id', title: 'ID', width:80, sort: true, fixed: 'left'}
+                    ,{field: 'username', title: '用户名', width:80}
+                ]
+            ]
+          });
+        });
+
+</script>
+
+</body>
+</html>
