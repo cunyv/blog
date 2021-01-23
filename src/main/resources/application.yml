@@ -1,0 +1,28 @@
+server:
+  port: 8081
+
+
+spring:
+  # thymeleaf
+  thymeleaf:
+    prefix: classpath:/templates/
+    check-template-location: true
+    suffix: .html
+    encoding: UTF-8
+    content-type: text/html
+    mode: HTML5
+    cache: false
+  # 数据源
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: 123456
+#mybatis-plus
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  type-enums-package: top.allhere.enums
+  global-config:
+    logic-not-delete-value: 0
+    logic-delete-value: 1
