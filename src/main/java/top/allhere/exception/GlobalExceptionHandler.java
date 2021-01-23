@@ -3,6 +3,7 @@ package top.allhere.exception;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import top.allhere.vo.ResultVo;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -12,7 +13,8 @@ public class GlobalExceptionHandler {
      * @param e
      */
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public void methodArgumentNotValidException(MethodArgumentNotValidException e) {
-        System.out.println(e.getBindingResult().getFieldError().getDefaultMessage());
+    public ResultVo methodArgumentNotValidException(MethodArgumentNotValidException e) {
+        ResultVo resultVo = new ResultVo(-1,e.getBindingResult().getFieldError().getDefaultMessage());
+        return resultVo;
     }
 }
