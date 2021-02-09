@@ -25,7 +25,7 @@ public class BlogApplication {
 		SpringApplication.run(BlogApplication.class, args);
 	}
 
-	Logger logger = LoggerFactory.getLogger(BlogApplication.class);
+	private static Logger logger = LoggerFactory.getLogger(BlogApplication.class);
 	@RequestMapping("/data")
 	@ResponseBody
 	public Map<String, Object> getName(){
@@ -43,10 +43,11 @@ public class BlogApplication {
 		return map;
 	}
 
-	@GetMapping("/{url}")
-	public String redirect(@PathVariable("url") String url){
+	@GetMapping("/abc")
+//	public String redirect(@PathVariable("url") String url){
+	public String redirect(String url){
 		logger.info("经过视图解析器！");
-		return url;
+		return "index";
 	}
 
 }

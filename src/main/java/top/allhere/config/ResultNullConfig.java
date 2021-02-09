@@ -16,7 +16,7 @@ import java.io.IOException;
  * @author zj_xianghong
  * @create 2021/1/23 22:07
  * @modified
- * @des 处理json数据返回时某些字段为null的问题，将null转为空字符串
+ * @des 处理json数据返回时某些字段为null，将null转为空字符串
  */
 @Configuration
 public class ResultNullConfig {

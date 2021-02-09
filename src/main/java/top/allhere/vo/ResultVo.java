@@ -1,24 +1,34 @@
 package top.allhere.vo;
 
+import top.allhere.enums.BusinessEnum;
+
 /**
- * @author zj_xianghong
+ * @author zhangjian
  * @create 2021/1/23 21:52
  * @modified
  * @des
  * code 状态码 msg状态信息 count数据总条数 data数据
- * todo
  */
 public class ResultVo<T> {
     private Integer code;
     private String msg;
-    private Long count;
+    private Integer count;
     private T data;
-
-
 
     public ResultVo() {
         this.code = -1;
-        this.msg = "请求失败!";
+        this.msg = "数据为空!";
+    }
+
+    public ResultVo(T data){
+        this.code = 0;
+        this.msg = "请求成功！";
+        this.data = data;
+    }
+
+    public ResultVo(BusinessEnum businessEnum) {
+        this.code = businessEnum.getCode();
+        this.msg = businessEnum.getMsg();
     }
 
     public ResultVo(Integer code, String msg) {
@@ -26,9 +36,16 @@ public class ResultVo<T> {
         this.msg = msg;
     }
 
-    public ResultVo(Long count, T data) {
+    public ResultVo(Integer count, T data) {
         this.code = 0;
         this.msg = "请求成功!";
+        this.count = count;
+        this.data = data;
+    }
+
+    public ResultVo(Integer code, String msg, Integer count, T data) {
+        this.code = code;
+        this.msg = msg;
         this.count = count;
         this.data = data;
     }
@@ -49,11 +66,11 @@ public class ResultVo<T> {
         this.msg = msg;
     }
 
-    public Long getCount() {
+    public Integer getCount() {
         return count;
     }
 
-    public void setCount(Long count) {
+    public void setCount(Integer count) {
         this.count = count;
     }
 
